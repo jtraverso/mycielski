@@ -1,6 +1,8 @@
 name: Palomar mechanical preflight
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       commit:
@@ -16,7 +18,7 @@ jobs:
     uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@c02bbeaed888df45c4e28c4e99dba540ad21552a
     with:
       repository: jtraverso/mycielski
-      commit: ${{ inputs.commit }}
+      commit: ${{ inputs.commit || github.sha }}
       pipeline_commit: c02bbeaed888df45c4e28c4e99dba540ad21552a
       request_id: mycielski001
       mode: full
