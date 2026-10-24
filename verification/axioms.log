@@ -1,0 +1,8 @@
+'Mycielski.card_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Mycielski.graph_cliqueFree_three_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Mycielski.colorable_succ_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Mycielski.chromaticNumber_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Mycielski.card_familyVertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Mycielski.family_cliqueFree_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Mycielski.family_chromaticNumber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Mycielski.exists_triangleFree_chromaticNumber_ge' depends on axioms: [propext, Classical.choice, Quot.sound]

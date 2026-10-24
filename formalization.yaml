@@ -1,0 +1,101 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Mycielski's construction and triangle-free graphs of unbounded chromatic number"
+  description: >-
+    A Lean 4 / Mathlib formalization of Mycielski's classical construction.
+    The construction preserves and reflects triangle-freeness, and its graph
+    is (k+1)-colorable exactly when the original graph is k-colorable. For
+    finite graphs the chromatic number increases by exactly one. Iteration
+    from K₂ gives finite triangle-free graphs with 3·2^n−1 vertices and
+    chromatic number n+2, hence unbounded chromatic number.
+  authors: ["Juan Pablo Traverso Gianini"]
+  responsible_maintainers: ["Juan Pablo Traverso Gianini"]
+  license: "Apache-2.0"
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05C15", "05C35"]
+
+sources:
+  - title: "Sur le coloriage des graphs"
+    authors: ["Jan Mycielski"]
+    id: "doi:10.4064/cm-3-2-161-162"
+    type: "paper"
+    location: "Colloquium Mathematicum 3 (1955), 161–162"
+    relationship: "formalizes"
+    note: >-
+      The classical construction and its triangle-free, unbounded-chromatic-number
+      consequence. The palette equivalence, reflection of triangle-freeness and
+      explicit size formulas are accompanying statements proved in this project;
+      they are not represented as individually numbered results of the paper.
+      No mathematical novelty or priority among formalizations is claimed.
+    license: "all rights reserved"
+    author_endorsement: "n/a"
+
+status:
+  scope: >-
+    The Mycielski construction and eight compared theorems: its order,
+    triangle-freeness equivalence, finite-palette equivalence, exact finite
+    chromatic-number increment, and the order, triangle-freeness and exact
+    chromatic number of the iterated family, followed by unboundedness.
+    The operation and palette equivalence allow arbitrary vertex types;
+    the chromatic-number increment is stated for finite types.
+    Challenge has eight intentional theorem placeholders and no definition holes.
+    Solution and its project imports contain no proof placeholders or custom axioms.
+    No assertion of coverage of every result in the source paper is made.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+
+automation:
+  methods:
+    - method: "agent"
+      framework: "OpenAI Codex"
+      tool_setup: >-
+        The agent wrote the definitions, Lean proofs, audit, documentation and
+        submission packaging under the author's natural-language direction.
+        Local checks use Lean v4.35.0-rc3 and Mathlib
+        c55e6e786f49471c72fbddbec5415808896aec1e.
+      prompting_notes: "Natural-language instructions in Spanish from the author."
+  notes: >-
+    OpenAI Codex provided material assistance throughout. No external prover,
+    Aristotle run or work from the author's other account was used.
+    No costs, duration or exact model identifier are asserted here.
+
+fidelity:
+  divergences: >-
+    Vertices are represented as Option (V × Bool), with none the apex,
+    false the original layer and true the shadow layer. The family starts at K₂
+    with index zero, so its chromatic number is n+2 and its order is 3·2^n−1.
+    Order is expressed without truncated subtraction as card+1=3·2^n.
+    Chromatic number takes values in the extended natural numbers, as in Mathlib.
+    The finite increment includes the empty graph, whose image is a singleton.
+    The unboundedness theorem requests a lower bound k and constructs the kth
+    family member, which has chromatic number k+2. Only propext, Classical.choice
+    and Quot.sound are permitted by Comparator. No new axiom is introduced.
+
+review:
+  status: "self-assessed"
+  notes: >-
+    The same Codex session that produced the code reviewed its statements and
+    ran local compilation, axiom audits, sandboxed Comparator and Lean/NanoDa
+    kernel checks. All eight compared theorems passed. This is not an
+    independent review. No independent human mathematical review has been
+    performed, and Palomar verification and editorial review are separate,
+    pending external checks. The author selected and directed the work.
+
+alignment:
+  namespace: "Mycielski"
+  statements:
+    - {source: "Construction order 2|V|+1", lean: "Mycielski.card_vertex", module: "Challenge", status: "proved"}
+    - {source: "Preservation and reflection of triangle-freeness", lean: "Mycielski.graph_cliqueFree_three_iff", module: "Challenge", status: "proved"}
+    - {source: "Equivalence of k and k+1 finite colorability", lean: "Mycielski.colorable_succ_iff", module: "Challenge", status: "proved"}
+    - {source: "Exact finite chromatic-number increment", lean: "Mycielski.chromaticNumber_graph", module: "Challenge", status: "proved"}
+    - {source: "Order of the iterated family", lean: "Mycielski.card_familyVertex", module: "Challenge", status: "proved"}
+    - {source: "Triangle-freeness of the iterated family", lean: "Mycielski.family_cliqueFree_three", module: "Challenge", status: "proved"}
+    - {source: "Chromatic number n+2 of the iterated family", lean: "Mycielski.family_chromaticNumber", module: "Challenge", status: "proved"}
+    - {source: "Finite triangle-free graphs of unbounded chromatic number", lean: "Mycielski.exists_triangleFree_chromaticNumber_ge", module: "Challenge", status: "proved"}
+
+acknowledgements: "Mathlib and the Lean community."

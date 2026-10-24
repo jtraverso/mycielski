@@ -1,0 +1,21 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Mycielski.card_vertex",
+    "Mycielski.graph_cliqueFree_three_iff",
+    "Mycielski.colorable_succ_iff",
+    "Mycielski.chromaticNumber_graph",
+    "Mycielski.card_familyVertex",
+    "Mycielski.family_cliqueFree_three",
+    "Mycielski.family_chromaticNumber",
+    "Mycielski.exists_triangleFree_chromaticNumber_ge"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
