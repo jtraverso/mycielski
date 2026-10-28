@@ -1,5 +1,12 @@
 # Mycielski's construction in Lean 4
 
+> **Archived (2026-10-28).** This formalization is now part of
+> [jtraverso/erdos-girth-chromatic](https://github.com/jtraverso/erdos-girth-chromatic) (version 2 of
+> Palomar entry PALOMAR-2026-10-17-000009), together with Erdős' girth–chromatic theorem and the
+> Larsen–Propp–Ullman formula for the fractional chromatic number of Mycielski graphs. The library
+> `Mycielski/` was merged there unchanged. This repository is kept read-only for reference and was
+> not submitted to Palomar.
+
 Author and maintainer: **Juan Pablo Traverso Gianini**.
 
 This project formalizes the construction from J. Mycielski,
